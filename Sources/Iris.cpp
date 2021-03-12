@@ -5,11 +5,14 @@
 #include "Bib/Iris.h"
 Iris::Iris(char car) {
 int i;
+
 label = new char[100];
-    ifstream in(" nom_fichier ”", ios ::in);
-    int nbr;
-    if(in)
-        in >> nbr;
+
+//    ifstream in(" nom_fichier ”", ios ::in);
+//    int nbr;
+//    if(in)
+//        in >> nbr;
+
 for(i= 0 ; i<=taille_description;i++ )
 {
     *(description+i)=.012;
