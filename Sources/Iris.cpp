@@ -8,6 +8,7 @@ int i;
 for(i= 0 ; i<=taille_description;i++ )
 {
     *(description+i)=.012;
+    label[i]='c';
 
 
 }
