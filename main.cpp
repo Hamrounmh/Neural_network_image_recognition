@@ -1,10 +1,10 @@
 #include <iostream>
 using namespace std;
-
+#include "Tests/Point.h"
 
 int main() {
-    int i=0;
-    cout<< "hello word";
+    Point p1 = Point(0, 0);
 
+    cout << p1.nbr ;
     return 0;
 }
