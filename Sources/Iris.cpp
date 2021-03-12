@@ -5,12 +5,11 @@
 #include "Bib/Iris.h"
 Iris::Iris(char car) {
 int i;
+label = new char[100];
 for(i= 0 ; i<=taille_description;i++ )
 {
     *(description+i)=.012;
     label[i]='c';
-
-
 }
 
 }
