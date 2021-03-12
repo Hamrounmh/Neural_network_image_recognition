@@ -7,7 +7,7 @@
 
 
 class Input {
-private:
+protected:
     char* label;
 public:
 
