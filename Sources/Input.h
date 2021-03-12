@@ -10,7 +10,8 @@ class Input {
 private:
     char* label;
 public:
-    double operateur(int);
+
+    virtual double & operator [](int) = 0 ;
     char* get_label();
 };
 

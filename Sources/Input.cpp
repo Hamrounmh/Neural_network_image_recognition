@@ -3,3 +3,7 @@
 //
 
 #include "Input.h"
+
+char* Input::get_label() {
+    return label;
+}
