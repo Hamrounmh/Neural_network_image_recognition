@@ -16,7 +16,7 @@ int integerPosition = car < 0 ? -1*car : car ;
 
 sprintf(filePosition, "%d", integerPosition);
 strcat(FILE_PATH,filePosition);
-ifstream in(FILE_PATH, ios ::binary);
+ifstream in(FILE_PATH, ios ::in);
 
 
 in.getline(line,100);
