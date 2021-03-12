@@ -12,6 +12,7 @@ private:
     static const int tailleDePixel= 28 * 28;
     char pixels[tailleDePixel];
     char PATH[1000] = "../Data/MNIST_training/training";
+    char PATH_LABEL[1000]="../Data/train-labels-idx1-ubyte";
 
 public:
     Image(int);

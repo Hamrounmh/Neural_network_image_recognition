@@ -14,7 +14,7 @@ int main() {
     */
 
 
-    Image im = Image(5);
+    Image im = Image(9);
     int i;
     for( i=0;i<(28*28);i++){
         cout << "pixel "<< i<<"= "<<im[i]<<"\n";
