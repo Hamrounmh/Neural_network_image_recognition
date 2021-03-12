@@ -8,7 +8,7 @@
 #include<fstream>
 
 using namespace std;
-
+double  pixel;
 
 
 // prend en entrée un entier correspond a l'indice de l'image (0,1 .....59999)
@@ -23,14 +23,16 @@ Image::Image(int index) {
     sprintf(charIndexFile, "%d", intIndexFile);
     strcat(PATH,charIndexFile);
     cout <<"path=" <<PATH<<"/n";
-    ifstream monFlux("/home/ahmed/CLionProjects/Images_classification_IA/Data/MNIST_training/training5", ios ::binary);
+    ifstream monFlux(PATH, ios ::binary);
 
     if(monFlux.good()){
         // se placer en 1078 octect a partir du debut de fichier
         monFlux.seekg(1078,ios::beg);
         while(!monFlux.eof()) {
             for (int i = 0; i < tailleDePixel; i++) {
-                monFlux.read((char*) &pixels[i], sizeof(double));
+                monFlux.read((char*) &pixels[i], sizeof(char));
+                //double pixel=(double )pixels [i];
+                //cout << pixel<<"\n";
             }
         }
 
@@ -54,7 +56,9 @@ Image::Image(int index) {
 // prend en entée un entier correspond a l'indice du pixel
 // un pixel c'est un niveau de gris (une valeur entre 0 et 255)
 double &Image::operator[](int i) {
-    return pixels[i];
+    pixel=(double )pixels[i];
+    return pixel;
+
 }
 
 Image::~Image() = default;

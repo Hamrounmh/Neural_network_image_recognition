@@ -10,8 +10,8 @@ class Image: public Input {
 
 private:
     static const int tailleDePixel= 28 * 28;
-    double pixels[tailleDePixel];
-    char PATH[1000] = "/home/ahmed/CLionProjects/Images_classification_IA/Data/MNIST_training/training";
+    char pixels[tailleDePixel];
+    char PATH[1000] = "../Data/MNIST_training/training";
 
 public:
     Image(int);

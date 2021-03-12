@@ -14,9 +14,9 @@ int main() {
     */
 
 
-    Image im = Image(1);
+    Image im = Image(5);
     int i;
-    for( i=0;i<28*28;i++){
+    for( i=0;i<(28*28);i++){
         cout << "pixel "<< i<<"= "<<im[i]<<"\n";
     }
     //cout<< im.get_label();
