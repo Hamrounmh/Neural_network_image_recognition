@@ -7,7 +7,7 @@ int Point::nbr = 0 ;
 Point :: Point(int abs , int ord ){
     x = abs;
     y=ord;
-    nbr++;
+    nbr=nbr+1;
 }
 Point::~Point() {
     nbr -- ;
