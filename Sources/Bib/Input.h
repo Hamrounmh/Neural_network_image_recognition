@@ -4,7 +4,11 @@
 
 #ifndef IMAGES_CLASSIFICATION_IA_INPUT_H
 #define IMAGES_CLASSIFICATION_IA_INPUT_H
-
+#include <iostream>
+#include <fstream>
+using namespace std;
+#include <cstdio>
+#include <cstring>
 
 class Input {
 protected:

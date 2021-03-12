@@ -4,11 +4,13 @@ using namespace std;
 #include "Sources/Bib/Iris.h"
 
 int main() {
-    Point p1 = Point(0, 0);
-    Iris ir = Iris('c');
 
-    cout << ir[2] <<"\n";
-    cout<< ir.get_label();
+    //test de l'ouverture de toute les iris:
+    for(int i=0;i<150;i++){
+        Iris ir = Iris(i);
+        cout<< ir.get_label()<<"--->" <<i <<"\n";
+    }
+
 
     return 0;
 }

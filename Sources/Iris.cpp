@@ -2,23 +2,37 @@
 // Created by hamro on 12/03/2021.
 //
 
+
 #include "Bib/Iris.h"
+
+
 Iris::Iris(char car) {
-int i;
 
 label = new char[100];
+int i = 0;
+char filePosition[5] ;
+char line[100];
+int integerPosition = car < 0 ? -1*car : car ;
 
-//    ifstream in(" nom_fichier ”", ios ::in);
-//    int nbr;
-//    if(in)
-//        in >> nbr;
+sprintf(filePosition, "%d", integerPosition);
+strcat(FILE_PATH,filePosition);
+ifstream in(FILE_PATH, ios ::binary);
 
-for(i= 0 ; i<=taille_description;i++ )
+
+in.getline(line,100);
+char * pch = strtok (line,",");
+
+while (pch != nullptr)
 {
-    *(description+i)=.012;
-    label[i]='c';
+    if(i<taille_description){
+        *(description+i) = atof(pch);
+        i++;
+    }else{
+        strcpy(label,pch);
+    }
+    pch = strtok (nullptr, ",");
 }
-
+in.close();
 }
 
 Iris::~Iris() = default;
