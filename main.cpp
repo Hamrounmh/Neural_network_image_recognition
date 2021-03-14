@@ -6,9 +6,9 @@ using namespace std;
 int main() {
 
     //test de l'ouverture de toute les iris:p
+    Iris ir = Iris();
    for(int i=0;i<150;i++){
-        Iris ir = Iris(i);
-        cout<< ir.get_label()<<"---->" << '['<<ir[0]<<',' <<ir[1]<<',' << ir[2]<<',' << ir[3]<<']'<< "---->"<<i <<"\n";
+        ir.get_description(i);
     }
 
 

@@ -12,7 +12,6 @@ private:
     static const int tailleDePixel= 28 * 28;
     char pixels[tailleDePixel];
 
-
 public:
     Image(int);
     ~Image();

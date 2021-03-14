@@ -13,8 +13,9 @@ private:
     double description[taille_description];
 public:
     Iris(char);
+    Iris();
     ~Iris();
-    double* get_description();
+    void get_description(int i);
     double & operator [] (int);
 
 

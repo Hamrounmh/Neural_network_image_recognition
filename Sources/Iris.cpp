@@ -34,12 +34,15 @@ Iris::Iris(char car) {
 
 Iris::~Iris() = default;
 
-double* Iris::get_description() {
-    return description;
+void Iris::get_description(int i) {
+    Iris ir = Iris(i);
+    cout<< ir.get_label()<<"---->" << '['<<ir[0]<<',' <<ir[1]<<',' << ir[2]<<',' << ir[3]<<']'<< "---->"<<i <<"\n";
 }
 
-//Iris ir = new Iris();
-//ir[2]  =descritpiton[2]
 double &Iris::operator[]( int i ) {
     return *(description+i);
+}
+
+Iris::Iris() {
+
 }
