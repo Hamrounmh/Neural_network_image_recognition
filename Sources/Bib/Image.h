@@ -15,6 +15,7 @@ private:
 public:
     Image(int);
     ~Image();
+    static void get_description(int i);
     double & operator[](int);
 
 

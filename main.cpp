@@ -6,11 +6,12 @@ using namespace std;
 int main() {
 
     //test de l'ouverture de toute les iris:p
-    Iris ir = Iris();
-   for(int i=0;i<150;i++){
-        ir.get_description(i);
-    }
 
+ /*  for(int i=0;i<150;i++){
+        Iris::get_description(i);
+    }
+*/
+    Image::get_description(1);
 
 /*
     Image im = Image(9);

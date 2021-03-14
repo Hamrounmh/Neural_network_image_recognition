@@ -67,4 +67,18 @@ double &Image::operator[](int i) {
 
 }
 
+void Image::get_description(int i) {
+    Image im = Image(i);
+    for (int i = 0; i < 28*28; i++)
+    {
+        if(im[i] != 0.)
+            cout << "*" << "\t";
+        else
+            cout << " " << "\t";
+        if(i%28 == 0 )
+            cout<<endl;
+
+    }
+}
+
 Image::~Image() = default;

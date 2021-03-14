@@ -29,9 +29,6 @@ Iris::Iris(char car) {
     in.close();
 }
 
-
-
-
 Iris::~Iris() = default;
 
 void Iris::get_description(int i) {
@@ -41,8 +38,4 @@ void Iris::get_description(int i) {
 
 double &Iris::operator[]( int i ) {
     return *(description+i);
-}
-
-Iris::Iris() {
-
 }
