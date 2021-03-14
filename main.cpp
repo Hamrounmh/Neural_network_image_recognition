@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
-#include "Sources/Bib/Iris.h"
-#include "Sources/Bib/Image.h"
+#include "Sources/Libraries/Iris.h"
+#include "Sources/Libraries/Image.h"
 
 int main() {
 

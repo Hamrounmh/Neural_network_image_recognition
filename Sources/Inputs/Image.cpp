@@ -2,8 +2,8 @@
 // Created by ahmed on 12/03/2021.
 //
 
-#include "../Bib/Input.h"
-#include "../Bib/Image.h"
+#include "../Libraries/Input.h"
+#include "../Libraries/Image.h"
 #include <iostream>
 #include<fstream>
 
