@@ -13,13 +13,7 @@ int main() {
 */
     Image::get_description(1);
 
-/*
-    Image im = Image(9);
 
-    for( i=0;i<(28*28);i++){
-        cout << "pixel "<< i<<"= "<<im[i]<<"\n";
-    }*/
-    //cout<< im.get_label();
 
     return 0;
 
