@@ -6,17 +6,18 @@
 #include "Bib/Iris.h"
 
 Iris::Iris(char car) {
-    int integerPosition = car < 0 ? -1*car : car ;
-Service sc = Service();
-ifstream in =  sc.readFile(sc.FILE_PATH_IRIS,  integerPosition);
 
-label = new char[100];
-int i = 0;
-char line[100];
-in.getline(line,100);
-char * pch = strtok (line,",");
-while (pch != nullptr)
-{
+    int integerPosition = car < 0 ? car+256 : car ;
+    Service sc = Service();
+    ifstream in =  sc.readFile(sc.FILE_PATH_IRIS,  integerPosition);
+    label = new char[100];
+    int i = 0;
+    char line[100];
+    in.getline(line,100);
+
+    char * pch = strtok (line,",");
+    while (pch != nullptr)
+    {
     if(i<taille_description){
         *(description+i) = atof(pch);
         i++;
@@ -24,8 +25,8 @@ while (pch != nullptr)
         strcpy(label,pch);
     }
     pch = strtok (nullptr, ",");
-}
-in.close();
+    }
+    in.close();
 }
 
 
