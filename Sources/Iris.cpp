@@ -5,23 +5,16 @@
 
 #include "Bib/Iris.h"
 
-
 Iris::Iris(char car) {
+    int integerPosition = car < 0 ? -1*car : car ;
+Service sc = Service();
+ifstream in =  sc.readFile(sc.FILE_PATH_IRIS,  integerPosition);
 
 label = new char[100];
 int i = 0;
-char filePosition[5] ;
 char line[100];
-int integerPosition = car < 0 ? -1*car : car ;
-
-sprintf(filePosition, "%d", integerPosition);
-strcat(FILE_PATH,filePosition);
-ifstream in(FILE_PATH, ios ::in);
-
-
 in.getline(line,100);
 char * pch = strtok (line,",");
-
 while (pch != nullptr)
 {
     if(i<taille_description){
@@ -35,6 +28,9 @@ while (pch != nullptr)
 in.close();
 }
 
+
+
+
 Iris::~Iris() = default;
 
 double* Iris::get_description() {
@@ -43,6 +39,6 @@ double* Iris::get_description() {
 
 //Iris ir = new Iris();
 //ir[2]  =descritpiton[2]
-double &Iris::operator[](int i ) {
+double &Iris::operator[]( int i ) {
     return *(description+i);
 }

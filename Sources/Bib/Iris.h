@@ -11,8 +11,6 @@ class Iris : public Input {
 private:
     static const int taille_description = 4;
     double description[taille_description];
-    char FILE_PATH[1000] = "../Data/iris_training/iris_training/iris";
-
 public:
     Iris(char);
     ~Iris();

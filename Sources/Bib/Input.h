@@ -9,12 +9,12 @@
 using namespace std;
 #include <cstdio>
 #include <cstring>
+#include "Service.h"
 
 class Input {
 protected:
     char* label;
 public:
-
     virtual double & operator [](int) = 0 ;
     char* get_label();
 };
