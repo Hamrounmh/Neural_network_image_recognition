@@ -37,7 +37,6 @@ Image::Image(int index) {
         cerr<< "ERREUR: Impossible d'ouvrir le fichier en lecture." <<endl
         ;exit(1);
     }
-    monFlux.close();
 
 
     if(monFluxLabel.good()){
@@ -49,7 +48,7 @@ Image::Image(int index) {
         ;exit(1);
     }
     monFluxLabel.close();
-
+    monFlux.close();
 
     // lecture des labels
     label = new char[100];

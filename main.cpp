@@ -11,7 +11,8 @@ int main() {
         Iris::get_description(i);
     }*/
 
-   // Image::get_description(1);
+    //Image::get_description(10);
+    Iris::get_description(54);
 
 
 
