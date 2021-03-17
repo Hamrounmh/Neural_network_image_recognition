@@ -15,6 +15,7 @@ double  pixel;
 Image::Image(int index) {
 
     label = new char[100];
+    char  pixel;
     int i = 0;
     char line;
 
@@ -43,6 +44,7 @@ Image::Image(int index) {
         int indexRead=8+index;
         monFluxLabel.seekg(indexRead,ios::beg);
         monFluxLabel.read((char*) &line, sizeof(char));
+        label[0]=line;
     } else{
         cerr<< "ERREUR: Impossible d'ouvrir le fichier en lecture." <<endl
         ;exit(1);
@@ -51,17 +53,13 @@ Image::Image(int index) {
     monFlux.close();
 
     // lecture des labels
-    label = new char[100];
-    for(int j=0;j<8;j++){
-        label[j]='a';
-    }
 
 }
 
 // prend en entée un entier correspond a l'indice du pixel
 // un pixel c'est un niveau de gris (une valeur entre 0 et 255)
 double &Image::operator[](int i) {
-    pixel=(double )pixels[i];
+    pixel= abs((double )pixels[i]);
     return pixel;
 
 }
@@ -78,6 +76,10 @@ void Image::get_description(int i) {
             cout<<endl;
 
     }
+}
+
+int Image::get_label() {
+    return int(label[0]);
 }
 
 Image::~Image() = default;
