@@ -20,6 +20,7 @@ int main() {
     //Iris::get_description(54);
 
 
+
 //    Image im =  Image(10);
 //    cout << "label :"<<im.get_label()<<'\n';
 //      for ( int i=0; i<28*28;i++){
@@ -31,12 +32,12 @@ int main() {
 //        cout << "label :"<<im.get_label()<<'\n';
 //    }
 
-Fonction_activation  *tangante = new Tanh();
-Input *iris=new Iris(4);
-
-Perceptron perceptron= Perceptron(4,(tangante),"Iris_Setosa");
-cout << perceptron.get_poids(1);
-cout << perceptron.forward(iris);
+//Fonction_activation  *tangante = new Tanh();
+//Input *iris=new Iris(4);
+//
+//Perceptron perceptron= Perceptron(4,(tangante),"Iris_Setosa");
+//cout << perceptron.get_poids(1);
+//cout << perceptron.forward(iris);
 
     return 0;
 
