@@ -6,7 +6,7 @@
 #define IMAGES_CLASSIFICATION_IA_SIGMOIDE_H
 #include "Fonction_activation.h"
 
-class Sigmoide : Fonction_activation{
+class Sigmoide : public Fonction_activation{
 public:
         Sigmoide();
         double  prim(double);

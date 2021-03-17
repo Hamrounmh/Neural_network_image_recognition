@@ -8,7 +8,7 @@
 #include "Perceptron.h"
 using namespace std;
 
-Perceptron::Perceptron(int taille_Input, Tanh   fct, char * labelInput) {
+Perceptron::Perceptron(int taille_Input, Fonction_activation   *fct, char * labelInput) {
 
     fonctionActivation=fct;
     label = new char[100];

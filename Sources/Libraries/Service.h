@@ -17,8 +17,6 @@ public:
     char FILE_PATH_TRAINING[200] = "../Data/MNIST_training/training";
     char FILE_PATH_LABEL[200]="../Data/train-labels-idx1-ubyte";
 
-
-    double genarteRandomDouble(double min, double max);
     static ifstream readFile(char* FILE_PATH ,int integerPosition);
 
     virtual ~Service();

@@ -7,8 +7,7 @@
 #include <cmath>
 
 class Fonction_activation {
-protected:
-    char* label;
+
 public:
     virtual double & operator ()(double) = 0 ;
     virtual double  prim(double) = 0;

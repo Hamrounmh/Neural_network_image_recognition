@@ -6,7 +6,7 @@
 #define IMAGES_CLASSIFICATION_IA_TANH_H
 #include "Fonction_activation.h"
 
-class Tanh : Fonction_activation{
+class Tanh : public Fonction_activation{
 public:
     Tanh();
     double  prim(double);

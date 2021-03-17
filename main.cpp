@@ -31,9 +31,10 @@ int main() {
 //        cout << "label :"<<im.get_label()<<'\n';
 //    }
 
-Tanh tangante =  Tanh();
+Fonction_activation  *tangante = new Tanh();
 
 Perceptron perceptron= Perceptron(4,(tangante),"Iris_Setosa");
+perceptron.get_poids(1);
 
     return 0;
 

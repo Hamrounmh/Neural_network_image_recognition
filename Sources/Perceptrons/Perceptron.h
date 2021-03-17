@@ -13,7 +13,7 @@
 class Perceptron {
 private:
     double* poids;
-    Tanh fonctionActivation ;
+    Fonction_activation *fonctionActivation ;
     double delta;
     char* label;
 public:
@@ -23,7 +23,7 @@ public:
      * ainsi qu’un char correspondant au label du perceptron.
      * Le constructeur va initialiser les poids du perceptron de manière aléatoire (par exemple en choisissant des valeurs entières entre -1 et 1 aléatoirement).
      */
-    Perceptron(int , Tanh   ,char* );
+    Perceptron(int , Fonction_activation*  ,char* );
 
     //Une fonction membre get_poids qui prend en paramètre un indice (int)
     // et renvoie une valeur réelle (double) correspondant à la valeur du
