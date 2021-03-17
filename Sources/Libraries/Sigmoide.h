@@ -10,7 +10,7 @@ class Sigmoide : public Fonction_activation{
 public:
         Sigmoide();
         double  prim(double);
-        double & operator ()(double);
+        double  operator ()(double);
         virtual ~Sigmoide();
 };
 

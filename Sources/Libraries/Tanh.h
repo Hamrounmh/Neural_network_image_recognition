@@ -10,7 +10,7 @@ class Tanh : public Fonction_activation{
 public:
     Tanh();
     double  prim(double);
-    double & operator ()(double);
+    double operator ()(double);
     virtual ~Tanh();
 };
 

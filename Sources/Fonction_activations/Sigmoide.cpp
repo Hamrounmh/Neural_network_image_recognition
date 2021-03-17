@@ -11,7 +11,7 @@ double Sigmoide::prim(double x) {
     return 1-sg(x);
 }
 
-double &Sigmoide::operator()(double x) {
+double Sigmoide::operator()(double x) {
     double y = 1/(1+exp(-x));
     return y;
 }

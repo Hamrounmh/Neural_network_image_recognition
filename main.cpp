@@ -35,8 +35,8 @@ Fonction_activation  *tangante = new Tanh();
 Input *iris=new Iris(4);
 
 Perceptron perceptron= Perceptron(4,(tangante),"Iris_Setosa");
-perceptron.get_poids(1);
-perceptron.forward(iris);
+cout << perceptron.get_poids(1);
+cout << perceptron.forward(iris);
 
     return 0;
 

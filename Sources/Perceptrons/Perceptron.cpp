@@ -30,9 +30,10 @@ double Perceptron::forward(Input * in) {
     double somme = *(poids);
     double xi;
     for(int i=0; i<tailleInput;i++){
-        xi =in->operator[](i);
+        xi =(*in)[i];
         somme+= (*(poids+i))*xi;
     }
-    double resultat =  fonctionActivation->operator()(somme);
-    return resultat;
+   return (*fonctionActivation)(somme);
+
+
 }

@@ -10,9 +10,9 @@ double Tanh::prim(double x) {
     return  (1 - tanh(x)) ;
 }
 
-double & Tanh::operator()(double x) {
-   double y =  ((double)exp(x)-(double)exp(-x))/((double)exp(x)+(double)exp(-x))  ;
-   return y;
+double  Tanh::operator()(double x) {
+   return  ((double)exp(x)-(double)exp(-x))/((double)exp(x)+(double)exp(-x))  ;
+
 }
 
 Tanh::Tanh() = default;
