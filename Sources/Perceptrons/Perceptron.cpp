@@ -46,7 +46,7 @@ double Perceptron::calcul_delta(Input * in) {
         somme+= (*(poids+i))*xi;
     }
     double part1 = (*fonctionActivation).prim(somme);
-    double part2 =forward( in) - (int)in->get_label();
+    double part2 =forward( in) - (int)(*in).get_label();
     delta = part1*part2;
     return delta ;
 }
