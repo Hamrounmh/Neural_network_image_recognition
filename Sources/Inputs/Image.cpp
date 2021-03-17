@@ -30,6 +30,7 @@ Image::Image(int index) {
         while(!monFlux.eof()) {
             for (int i = 0; i < tailleDePixel; i++) {
                 monFlux.read((char*) &pixels[i], sizeof(char));
+
             }
         }
     }
@@ -59,7 +60,7 @@ Image::Image(int index) {
 // prend en entée un entier correspond a l'indice du pixel
 // un pixel c'est un niveau de gris (une valeur entre 0 et 255)
 double &Image::operator[](int i) {
-    pixel= abs((double )pixels[i]);
+    pixel= pixels[i]<0 ?  pixels[i]+256 : pixels[i];
     return pixel;
 
 }
