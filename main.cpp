@@ -12,8 +12,19 @@ int main() {
     }*/
 
     //Image::get_description(10);
-    Iris::get_description(54);
+    //Iris::get_description(54);
 
+
+//    Image im =  Image(10);
+//    cout << "label :"<<im.get_label()<<'\n';
+//      for ( int i=0; i<28*28;i++){
+//          cout << "pixel " <<i <<":"<<im[i]<<'\n';
+//      }
+//
+    for ( int i=0; i<28*28;i++){
+        Image im =  Image(i);
+        cout << "label :"<<im.get_label()<<'\n';
+    }
 
 
     return 0;

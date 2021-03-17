@@ -5,7 +5,6 @@
 #include "../Libraries/Input.h"
 #include "../Libraries/Image.h"
 #include <iostream>
-#include<fstream>
 
 using namespace std;
 double  pixel;
@@ -39,12 +38,13 @@ Image::Image(int index) {
         ;exit(1);
     }
 
-
+    char labelresult[1];
     if(monFluxLabel.good()){
         int indexRead=8+index;
         monFluxLabel.seekg(indexRead,ios::beg);
         monFluxLabel.read((char*) &line, sizeof(char));
-        label[0]=line;
+        sprintf(labelresult, "%d", line);
+        strcpy(label,labelresult);
     } else{
         cerr<< "ERREUR: Impossible d'ouvrir le fichier en lecture." <<endl
         ;exit(1);
@@ -78,8 +78,7 @@ void Image::get_description(int i) {
     }
 }
 
-int Image::get_label() {
-    return int(label[0]);
-}
+
+
 
 Image::~Image() = default;

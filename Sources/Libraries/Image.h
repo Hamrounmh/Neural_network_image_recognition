@@ -17,8 +17,6 @@ public:
     ~Image();
     static void get_description(int i);
     double & operator[](int);
-    int get_label();
-
 
 };
 
