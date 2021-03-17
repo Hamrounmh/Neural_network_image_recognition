@@ -15,7 +15,7 @@ class Input {
 protected:
     char* label;
 public:
-    virtual double & operator [](int) = 0 ;
+    virtual double operator [](int) = 0 ;
     char* get_label();
 };
 

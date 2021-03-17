@@ -36,6 +36,6 @@ void Iris::get_description(int i) {
     cout<< ir.get_label()<<"---->" << '['<<ir[0]<<',' <<ir[1]<<',' << ir[2]<<',' << ir[3]<<']'<< "---->"<<i <<"\n";
 }
 
-double &Iris::operator[]( int i ) {
+double Iris::operator[]( int i ) {
     return *(description+i);
 }

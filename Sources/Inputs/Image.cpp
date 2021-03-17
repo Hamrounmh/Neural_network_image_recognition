@@ -59,7 +59,7 @@ Image::Image(int index) {
 
 // prend en entée un entier correspond a l'indice du pixel
 // un pixel c'est un niveau de gris (une valeur entre 0 et 255)
-double &Image::operator[](int i) {
+double Image::operator[](int i) {
     pixel= pixels[i]<0 ?  pixels[i]+256 : pixels[i];
     return pixel;
 

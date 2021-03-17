@@ -15,7 +15,7 @@ public:
     Iris(char);
     ~Iris();
     static void get_description(int i);
-    double & operator [] (int);
+    double operator [] (int);
 
 
 
