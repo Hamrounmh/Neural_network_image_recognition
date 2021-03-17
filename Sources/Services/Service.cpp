@@ -14,6 +14,16 @@ Service::~Service() {
 Service::Service() {
 
 }
+double* Service::genarteRandomDoubleArray(double min, double max,int ArrayLength,double * values){
+
+
+    default_random_engine generator(std::chrono::system_clock::now().time_since_epoch().count());
+    uniform_real_distribution<double> distribution(min, max);
+    for(int i=0; i<ArrayLength; i++ )
+        *(values+i) =distribution(generator);
+    return values;
+
+}
 ifstream Service::readFile(char *FILE_PATH, int integerPosition) {
 
     char filePosition[5] ;

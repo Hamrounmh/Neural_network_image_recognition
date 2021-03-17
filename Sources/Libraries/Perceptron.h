@@ -6,9 +6,9 @@
 #define IMAGES_CLASSIFICATION_IA_PERCEPTRON_H
 
 
-#include "../Libraries/Fonction_activation.h"
-#include "../Libraries/Input.h"
-#include "../Libraries/Tanh.h"
+#include "Fonction_activation.h"
+#include "Input.h"
+#include "Tanh.h"
 
 class Perceptron {
 private:
@@ -16,6 +16,7 @@ private:
     Fonction_activation *fonctionActivation ;
     double delta;
     char* label;
+    int tailleInput;
 public:
     /*
      * Un constructeur qui prend en paramètre un entier correspondant à la taille de l’input (par exemple, 4 pour les fleurs et 784 pour les images),

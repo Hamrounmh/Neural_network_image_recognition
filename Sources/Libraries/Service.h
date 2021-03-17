@@ -21,8 +21,7 @@ public:
 
     virtual ~Service();
     Service();
-
-
+    static double* genarteRandomDoubleArray(double min, double max,int ArrayLength,double * values);
 };
 
 

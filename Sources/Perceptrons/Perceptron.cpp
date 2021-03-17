@@ -5,23 +5,17 @@
 
 #include <random>
 #include <chrono>
-#include "Perceptron.h"
+#include "../Libraries/Perceptron.h"
 using namespace std;
 
 Perceptron::Perceptron(int taille_Input, Fonction_activation   *fct, char * labelInput) {
-
-    fonctionActivation=fct;
+    tailleInput = taille_Input;
+    fonctionActivation = fct;
     label = new char[100];
     poids = new double[taille_Input];
-    strcpy(label,labelInput);
-    delta=0.;
-    default_random_engine generator(std::chrono::system_clock::now().time_since_epoch().count());
-    uniform_real_distribution<double> distribution(-1.0, 1.0);
-
-for(int i = 0; i<taille_Input; i++ ){
-    *(poids+i) = distribution(generator);
-}
-
+    strcpy(label, labelInput);
+    delta = 0.;
+    Service::genarteRandomDoubleArray(-1.0, 1.0, taille_Input,poids);
 }
 
 double Perceptron::get_poids(int i) {
@@ -30,4 +24,15 @@ double Perceptron::get_poids(int i) {
 
 double Perceptron::get_delta() {
     return delta;
+}
+
+double Perceptron::forward(Input * in) {
+    double somme = *(poids);
+    double xi;
+    for(int i=0; i<tailleInput;i++){
+        xi =in->operator[](i);
+        somme+= (*(poids+i))*xi;
+    }
+    double resultat =  fonctionActivation->operator()(somme);
+    return resultat;
 }

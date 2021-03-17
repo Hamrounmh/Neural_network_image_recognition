@@ -6,7 +6,7 @@ using namespace std;
 #include "Sources/Libraries/Iris.h"
 #include "Sources/Libraries/Image.h"
 #include "Sources/Libraries/Tanh.h"
-#include "Sources/Perceptrons/Perceptron.h"
+#include "Sources/Libraries/Perceptron.h"
 
 int main() {
 
@@ -32,9 +32,11 @@ int main() {
 //    }
 
 Fonction_activation  *tangante = new Tanh();
+Input *iris=new Iris(4);
 
 Perceptron perceptron= Perceptron(4,(tangante),"Iris_Setosa");
 perceptron.get_poids(1);
+perceptron.forward(iris);
 
     return 0;
 
