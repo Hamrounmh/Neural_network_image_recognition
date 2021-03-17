@@ -8,6 +8,8 @@
 #include "../Libraries/Perceptron.h"
 using namespace std;
 
+//TODO:  tester les methodes de la class
+//TODO: trouver une solution pour la méthode get_label() qui doit retourner un entier pour les calcul
 Perceptron::Perceptron(int taille_Input, Fonction_activation   *fct, char * labelInput) {
     tailleInput = taille_Input+1;
     fonctionActivation = fct;
