@@ -21,7 +21,10 @@ public:
 
     virtual ~Service();
     Service();
-    static double* genarteRandomDoubleArray(double min, double max,int ArrayLength,double * values);
+    static int assigneLabelValuesIris(char * strLabel);
+    static char assigneLabelValuesImages(char * strLabel);
+    static int* generateRandomIntArray(int min, int max, int ArrayLength, int * values);
+    static double* generateRandomDoubleArray(double min, double max, int ArrayLength, double * values);
 };
 
 

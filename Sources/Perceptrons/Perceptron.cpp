@@ -10,14 +10,14 @@ using namespace std;
 
 //TODO:  tester les methodes de la class
 //TODO: trouver une solution pour la méthode get_label() qui doit retourner un entier pour les calcul
-Perceptron::Perceptron(int taille_Input, Fonction_activation   *fct, char * labelInput) {
+// TODO: verifier que les labels ici sont des char seulement
+Perceptron::Perceptron(int taille_Input, Fonction_activation   *fct, char  labelInput) {
     tailleInput = taille_Input+1;
     fonctionActivation = fct;
-    label = new char[100];
-    poids = new double[taille_Input+1];
-    strcpy(label, labelInput);
+    poids = new int[taille_Input+1];
+    label =  labelInput;
     delta = 0.;
-    Service::genarteRandomDoubleArray(-1.0, 1.0, tailleInput,poids);
+    Service::generateRandomIntArray(-1, 1, tailleInput, poids);
 }
 
 double Perceptron::get_poids(int i) {

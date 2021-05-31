@@ -4,6 +4,6 @@
 
 #include "../Libraries/Input.h"
 
-char* Input::get_label() {
+char  Input::get_label() {
     return label;
 }

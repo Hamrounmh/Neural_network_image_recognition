@@ -9,11 +9,12 @@
 using namespace std;
 double  pixel;
 
-
+//TODO : trouver comment implémenter les labels des  images comme les labels sont des char
 // prend en entrée un entier correspond a l'indice de l'image (0,1 .....59999)
 Image::Image(int index) {
 
-    label = new char[100];
+    //label = new char[100];
+    char * label_of_str = new char [100];
     char  pixel;
     int i = 0;
     char line;
@@ -45,7 +46,7 @@ Image::Image(int index) {
         monFluxLabel.seekg(indexRead,ios::beg);
         monFluxLabel.read((char*) &line, sizeof(char));
         sprintf(labelresult, "%d", line);
-        strcpy(label,labelresult);
+        strcpy(label_of_str,labelresult);
     } else{
         cerr<< "ERREUR: Impossible d'ouvrir le fichier en lecture." <<endl
         ;exit(1);
@@ -53,8 +54,8 @@ Image::Image(int index) {
     monFluxLabel.close();
     monFlux.close();
 
-    // lecture des labels
-
+     //lecture des labels
+        label = Service::assigneLabelValuesImages(label_of_str);
 }
 
 // prend en entée un entier correspond a l'indice du pixel

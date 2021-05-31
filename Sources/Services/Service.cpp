@@ -14,7 +14,17 @@ Service::~Service() {
 Service::Service() {
 
 }
-double* Service::genarteRandomDoubleArray(double min, double max,int ArrayLength,double * values){
+// TODO: Ce service doit nous retourner des valeurs entières :
+int* Service::generateRandomIntArray(int min, int max, int ArrayLength, int * values){
+
+    default_random_engine generator(std::chrono::system_clock::now().time_since_epoch().count());
+    uniform_int_distribution<int> distribution(min, max);
+    for(int i=0; i<ArrayLength; i++ )
+        *(values+i) =distribution(generator);
+    return values;
+
+}
+double* Service::generateRandomDoubleArray(double min, double max, int ArrayLength, double * values){
 
 
     default_random_engine generator(std::chrono::system_clock::now().time_since_epoch().count());
@@ -32,4 +42,18 @@ ifstream Service::readFile(char *FILE_PATH, int integerPosition) {
     ifstream in(FILE_PATH, ios ::in);
 
     return in;
+}
+//TODO : comprendre l'histoire des labels ..
+int Service::assigneLabelValuesIris(char *strLabel) {
+    const char * IRIS_LABELS[3]={"Iris-setosa", "Iris-virginica", "Iris-versicolor"};
+    for( int i=0 ; i<3 ; i++ ){
+        if(strcmp(IRIS_LABELS[i],strLabel) == 0 ){
+        return i ;
+}
+    }
+  return -1 ;
+}
+
+char Service::assigneLabelValuesImages(char *strLabel) {
+    return strLabel[0];
 }

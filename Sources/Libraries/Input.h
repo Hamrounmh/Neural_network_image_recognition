@@ -13,10 +13,10 @@ using namespace std;
 
 class Input {
 protected:
-    char* label;
+    char label;
 public:
     virtual double operator [](int) = 0 ;
-    char* get_label();
+    char get_label();
 };
 
 

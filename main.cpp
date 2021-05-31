@@ -35,11 +35,16 @@ int main() {
 //Fonction_activation  *tangante = new Tanh();
 //Input *iris=new Iris(4);
 //
-//Perceptron perceptron= Perceptron(4,(tangante),"Iris_Setosa");
-//cout << perceptron.get_poids(1);
-//cout << perceptron.forward(iris);
+//Perceptron perceptron= Perceptron(4,tangante,'c');
+//cout << perceptron.get_poids(0);
 
-    return 0;
+/*Mat img = imread("image.jpg");
+namedWindow("image", WINDOW_AUTOSIZE);
+imshow("image", img);
+waitKey();*/
+
+return 0;
+
 
 
 
