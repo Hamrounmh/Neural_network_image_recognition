@@ -52,10 +52,10 @@ double Perceptron::calcul_delta(Input * in) {
 }
 
 //TODO : verifier les taille des tableau sachant que poids est de taille n+1 et input.x est de taille n
-void Perceptron::backprop(Input * in, double mu) {
-poids[0]= poids[0] - mu*delta;
+void Perceptron::backprop(Input * in, double learningRate) {
+poids[0]= poids[0] - learningRate*delta;
 for(int i=1; i<tailleInput; i++){
-    poids[i]  = poids[i] - mu* (*in)[i-1] *delta;
+    poids[i]  = poids[i] - learningRate* (*in)[i-1] *delta;
 }
 
 }
