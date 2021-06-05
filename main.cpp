@@ -8,14 +8,14 @@ using namespace std;
 #include "Sources/Libraries/Tanh.h"
 #include "Sources/Libraries/Perceptron.h"
 
-int main() {
+int main2() {
 
     //test de l'ouverture de toute les iris:p
 
-   /*for(int i=0;i<150;i++){
+  /* for(int i=0;i<150;i++){
         Iris::get_description(i);
-    }*/
-
+    }
+*/
     //Image::get_description(10);
     //Iris::get_description(54);
 
@@ -27,10 +27,10 @@ int main() {
 //          cout << "pixel " <<i <<":"<<im[i]<<'\n';
 //      }
 
-//    for ( int i=0; i<28*28;i++){
-//        Image im =  Image(i);
-//        cout << "label :"<<im.get_label()<<'\n';
-//    }
+    /*for ( int i=0; i<60000;i++){
+        Image im =  Image(i);
+        cout << "label :"<<im.get_label()<<'\n';
+    }*/
 
 //Fonction_activation  *tangante = new Tanh();
 //Input *iris=new Iris(4);

@@ -57,3 +57,11 @@ int Service::assigneLabelValuesIris(char *strLabel) {
 char Service::assigneLabelValuesImages(char *strLabel) {
     return strLabel[0];
 }
+
+int Service::generateRandomInt(int min, int max) {
+    default_random_engine generator(std::chrono::system_clock::now().time_since_epoch().count());
+
+    uniform_int_distribution<int> distribution(min, max);
+
+    return distribution(generator);
+}

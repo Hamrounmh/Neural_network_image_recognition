@@ -59,3 +59,13 @@ for(int i=1; i<tailleInput; i++){
 }
 
 }
+
+char Perceptron::getLabel() const {
+    return label;
+}
+
+void Perceptron::setLabel(char label) {
+    Perceptron::label = label;
+}
+
+

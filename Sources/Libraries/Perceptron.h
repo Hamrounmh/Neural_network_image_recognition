@@ -48,6 +48,12 @@ public:
     // et qui ne renvoie rien. Cette fonction va apprendre les poids à partir de l’input en paramètre en utilisant la formule
     //𝑤𝒊𝑘={𝑤𝒊𝑘−1−𝜇𝛿𝑘−1 𝑠𝑖 𝑖=0 𝑤𝒊𝑘−1−𝜇𝑥𝑖𝛿𝑘−1 𝑠𝑖𝑛𝑜𝑛
     void backprop(Input *, double mu);
+
+    char getLabel() const;
+
+    void setLabel(char label);
+
+    Perceptron(Perceptron *pPerceptron);
 };
 
 
