@@ -6,11 +6,10 @@
 #include "../Libraries/Sigmoide.h"
 
 // TODO : definir comment passer la fonction d'activation car c'est encore flou
-NN1::NN1(int InputSize, int CategoriesNumber , char label ) {
+NN1::NN1(int InputSize, int CategoriesNumber ) {
     Fonction_activation *fct = new Sigmoide();
-
     for(int i = 0 ; i<CategoriesNumber; i++ ){
-        perceptronList[i] = new Perceptron(InputSize,fct ,label);
+        perceptronList[i] = new Perceptron(InputSize,fct ,i);
     }
     NbPerceptronInNN1 = CategoriesNumber;
 }
@@ -18,15 +17,15 @@ NN1::NN1(int InputSize, int CategoriesNumber , char label ) {
 char NN1::evaluation(Input * input) {
 
 double value  = perceptronList[0]->forward(input);
-    int result ;
+    char result  = 0;
     for(int i = 0 ; i < NbPerceptronInNN1 ; i++ ){
         double nextValuePerceptron = perceptronList[i]->forward(input);
-         result= value < nextValuePerceptron ? nextValuePerceptron : value ;
+         if(nextValuePerceptron>value){
+              result = i;
+              value=nextValuePerceptron;
+         }
     }
-
-
-    return result< 0.5 ?  0 : 1 ;
-
+    return result;
 }
 
 void NN1::apprentissage(Input * input, double learningRante) {

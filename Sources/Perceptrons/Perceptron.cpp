@@ -14,7 +14,7 @@ using namespace std;
 Perceptron::Perceptron(int taille_Input, Fonction_activation   *fct, char  labelInput) {
     tailleInput = taille_Input+1;
     fonctionActivation = fct;
-    poids = new int[taille_Input+1];
+   // poids = new int[taille_Input+1];
     label =  labelInput;
     delta = 0.;
     Service::generateRandomIntArray(-1, 1, tailleInput, poids);
@@ -23,19 +23,32 @@ Perceptron::Perceptron(int taille_Input, Fonction_activation   *fct, char  label
 double Perceptron::get_poids(int i) {
     return *(poids+i);
 }
-
+char* Perceptron::get_AllPoids(){
+    char * result = "";
+//    for (int i =0 ; i<=tailleInput; i++){
+//        char *labelresult;
+//        sprintf(labelresult, "%d", get_poids(i));
+//        strcat(result,labelresult );
+//    }
+    return  result;
+}
 double Perceptron::get_delta() {
     return delta;
 }
 
+void Perceptron::setDelta(double delta) {
+    Perceptron::delta = delta;
+}
+
 double Perceptron::forward(Input * in) {
-    double somme = *(poids);
+    double somme = *poids;
     double xi;
-    for(int i=1; i<tailleInput;i++){
+    for(int i=1; i<=tailleInput;i++){
         xi =(*in)[i-1];
-        somme+= (*(poids+i+1))*xi;
+        somme+= (*(poids+i))*xi;
     }
-   return (*fonctionActivation)(somme);
+   int result =  (*fonctionActivation)(somme);
+    return result;
 }
 
 double Perceptron::calcul_delta(Input * in) {
@@ -48,15 +61,17 @@ double Perceptron::calcul_delta(Input * in) {
     double part1 = (*fonctionActivation).prim(somme);
     double part2 =forward(in) - (int)(*in).get_label();
     delta = part1*part2;
+    setDelta( delta);
     return delta ;
 }
 
 //TODO : verifier les taille des tableau sachant que poids est de taille n+1 et input.x est de taille n
 void Perceptron::backprop(Input * in, double learningRate) {
-poids[0]= poids[0] - learningRate*delta;
-for(int i=1; i<tailleInput; i++){
-    poids[i]  = poids[i] - learningRate* (*in)[i-1] *delta;
-}
+    calcul_delta(in);
+    poids[0]= get_poids(0) - learningRate*delta;
+    for(int i=1; i<=tailleInput; i++){
+        poids[i]  = get_poids(i) - learningRate* (*in)[i-1] *delta;
+    }
 
 }
 

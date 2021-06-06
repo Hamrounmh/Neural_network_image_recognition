@@ -15,8 +15,8 @@ nn1 = p_nn1;
 void PatronApprentissage::apprendre_base(int k_iterations, double learningRate) {
     Service sc = Service();
     Input *input;
-for(int i=0; i<k_iterations ;i++){
 
+for(int i=0; i<k_iterations ;i++){
     int randomInt = sc.generateRandomInt(0,exemplesNumberForInput);
     if(strcmp(serviceNameInput,"image") == 0){
         input= new Image(randomInt);
@@ -41,8 +41,11 @@ int PatronApprentissage::evaluer() {
         }else{
             input= new Iris(i);
         }
+
         resultEvaluation= nn1->evaluation(input);
         char labelInput =  input->get_label();
+
+
         if(resultEvaluation == labelInput)
             cpt ++ ;
     }

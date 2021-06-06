@@ -13,7 +13,7 @@ private :
     int NbPerceptronInNN1;
 public:
 
-    NN1(int ,int ,char );
+    NN1(int ,int  );
     char evaluation(Input *);
     void apprentissage(Input * , double);
 

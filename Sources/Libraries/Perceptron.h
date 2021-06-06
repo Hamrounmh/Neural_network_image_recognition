@@ -12,7 +12,7 @@
 
 class Perceptron {
 private:
-    int* poids;
+    int poids[1000];
     Fonction_activation *fonctionActivation ;
     double delta;
     char label;
@@ -34,6 +34,9 @@ public:
     //correspond au calcul de 𝒜(𝒙)).
     double forward(Input *);
 
+    char* get_AllPoids();
+
+
     //Une fonction membre calcul_delta qui prend en paramètre un Input (de préférence par référence),
     // et qui renvoie une valeur réelle (double) correspondant à l’évaluation de la valeur 𝛿𝑘−1=𝜑′(𝑤0𝑘−1+Σ𝑤𝑖𝑘−1𝑥𝑖𝑛𝑖=1)×(𝒜(𝒙𝒋)−𝑦𝑗)
     //pour l’input (𝒙𝑗,y𝑗) donné en paramètre. Cette fonction va également stocker cette valeur dans le champ delta.
@@ -53,7 +56,8 @@ public:
 
     void setLabel(char label);
 
-    Perceptron(Perceptron *pPerceptron);
+    void setDelta(double delta);
+
 };
 
 
