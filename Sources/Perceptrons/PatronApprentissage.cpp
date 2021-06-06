@@ -8,8 +8,8 @@
 
 PatronApprentissage::PatronApprentissage(char * p_serviceNameInput, int p_exemplesNumberForInput, NN1 * p_nn1) {
 nn1 = p_nn1;
-    serviceNameInput= p_serviceNameInput;
-    exemplesNumberForInput=p_exemplesNumberForInput;
+serviceNameInput= p_serviceNameInput;
+exemplesNumberForInput=p_exemplesNumberForInput;
 }
 
 void PatronApprentissage::apprendre_base(int k_iterations, double learningRate) {

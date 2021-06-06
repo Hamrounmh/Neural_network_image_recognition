@@ -4,6 +4,7 @@
 
 #include "../Libraries/Test.h"
 #include "../Libraries/PatronApprentissage.h"
+#include "../Libraries/Sigmoide.h"
 
 int main() {
 
@@ -16,7 +17,19 @@ patronApprentissage.apprendre_base(15000,0.1);
 
 int result = patronApprentissage.evaluer();
 
+//Input * iris = new Iris(15);
+//char res =  nn1->evaluation(iris);
+//cout << "la pridiction est " <<res <<"\n";
 
-cout << "le resultat de l'evaluation est de : " << result ;
+double pourcentage = (result / 150.) * 100;
+cout << "le resultat de l'evaluation est de : " <<pourcentage  <<"%"  ;
+
+//    Fonction_activation * fct =  new Sigmoide();
+//    int i = 5.6;
+//    int x = (*fct)(i);
+//cout << x<<"\n";
+//cout<<(*fct)(i);
+
+
 return 0;
 }

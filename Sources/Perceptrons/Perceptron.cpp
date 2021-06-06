@@ -5,6 +5,7 @@
 
 #include <random>
 #include <chrono>
+#include <unistd.h>
 #include "../Libraries/Perceptron.h"
 using namespace std;
 
@@ -12,12 +13,19 @@ using namespace std;
 //TODO: trouver une solution pour la méthode get_label() qui doit retourner un entier pour les calcul
 // TODO: verifier que les labels ici sont des char seulement
 Perceptron::Perceptron(int taille_Input, Fonction_activation   *fct, char  labelInput) {
-    tailleInput = taille_Input+1;
+    tailleInput = taille_Input;
     fonctionActivation = fct;
-   // poids = new int[taille_Input+1];
+    int * values = new int[taille_Input+1];
     label =  labelInput;
     delta = 0.;
-    Service::generateRandomIntArray(-1, 1, tailleInput, poids);
+
+    Service::generateRandomIntArray(-1,1,taille_Input+1,values);
+    for(int i= 0 ; i<taille_Input+1 ; i++ ){
+        *(poids+i) = *(values+i);
+    }
+
+
+
 }
 
 double Perceptron::get_poids(int i) {
@@ -41,25 +49,28 @@ void Perceptron::setDelta(double delta) {
 }
 
 double Perceptron::forward(Input * in) {
-    double somme = *poids;
-    double xi;
-    for(int i=1; i<=tailleInput;i++){
-        xi =(*in)[i-1];
-        somme+= (*(poids+i))*xi;
-    }
-   int result =  (*fonctionActivation)(somme);
-    return result;
-}
-
-double Perceptron::calcul_delta(Input * in) {
-    double somme = *(poids);
+    double somme = get_poids(0);
     double xi;
     for(int i=0; i<tailleInput;i++){
         xi =(*in)[i];
-        somme+= (*(poids+i))*xi;
+        somme = somme + get_poids(i+1)*xi;
+    }
+   double result  =  (*fonctionActivation)(somme);
+    return result ;
+
+}
+
+double Perceptron::calcul_delta(Input * in) {
+    double somme = get_poids(0);
+    double xi;
+    for(int i=0; i<tailleInput;i++){
+        xi =(*in)[i];
+        somme= somme +  (get_poids(i+1)*xi);
     }
     double part1 = (*fonctionActivation).prim(somme);
-    double part2 =forward(in) - (int)(*in).get_label();
+    char yj =  (*in).get_label();
+    double Axj = forward(in);
+    double part2 = Axj-yj;
     delta = part1*part2;
     setDelta( delta);
     return delta ;
@@ -67,10 +78,9 @@ double Perceptron::calcul_delta(Input * in) {
 
 //TODO : verifier les taille des tableau sachant que poids est de taille n+1 et input.x est de taille n
 void Perceptron::backprop(Input * in, double learningRate) {
-    calcul_delta(in);
     poids[0]= get_poids(0) - learningRate*delta;
-    for(int i=1; i<=tailleInput; i++){
-        poids[i]  = get_poids(i) - learningRate* (*in)[i-1] *delta;
+    for(int i=0; i<tailleInput; i++){
+        poids[i+1]  = get_poids(i+1) - learningRate* (*in)[i] *delta;
     }
 
 }

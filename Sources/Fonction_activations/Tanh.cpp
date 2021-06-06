@@ -11,7 +11,8 @@ double Tanh::prim(double x) {
 }
 
 double  Tanh::operator()(double x) {
-   return  ((double)exp(x)-(double)exp(-x))/((double)exp(x)+(double)exp(-x))  ;
+   double y =((double)exp(x)-(double)exp(-x))/((double)exp(x)+(double)exp(-x))  ;
+    return y;
 
 }
 

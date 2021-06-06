@@ -2,6 +2,7 @@
 // Created by hamro on 01/06/2021.
 //
 
+#include <unistd.h>
 #include "../Libraries/NN1.h"
 #include "../Libraries/Sigmoide.h"
 
@@ -10,6 +11,7 @@ NN1::NN1(int InputSize, int CategoriesNumber ) {
     Fonction_activation *fct = new Sigmoide();
     for(int i = 0 ; i<CategoriesNumber; i++ ){
         perceptronList[i] = new Perceptron(InputSize,fct ,i);
+        sleep(1);
     }
     NbPerceptronInNN1 = CategoriesNumber;
 }
@@ -17,11 +19,11 @@ NN1::NN1(int InputSize, int CategoriesNumber ) {
 char NN1::evaluation(Input * input) {
 
 double value  = perceptronList[0]->forward(input);
-    char result  = 0;
-    for(int i = 0 ; i < NbPerceptronInNN1 ; i++ ){
+    char result  = perceptronList[0]->getLabel();
+    for(int i = 1 ; i < NbPerceptronInNN1 ; i++ ){
         double nextValuePerceptron = perceptronList[i]->forward(input);
          if(nextValuePerceptron>value){
-              result = i;
+              result = perceptronList[i]->getLabel();
               value=nextValuePerceptron;
          }
     }
@@ -30,7 +32,9 @@ double value  = perceptronList[0]->forward(input);
 
 void NN1::apprentissage(Input * input, double learningRante) {
 
+
     for(int i = 0 ; i<NbPerceptronInNN1 ; i++ ){
+        perceptronList[i]->calcul_delta(input);
         perceptronList[i]->backprop(input,learningRante);
     }
 }
