@@ -3,14 +3,14 @@
 //
 
 #include <unistd.h>
-#include "../Libraries/NN1.h"
-#include "../Libraries/Sigmoide.h"
+#include "../../Libraries/NN1.h"
+#include "../../Libraries/Sigmoide.h"
 
-// TODO : definir comment passer la fonction d'activation car c'est encore flou
-NN1::NN1(int InputSize, int CategoriesNumber ) {
-    Fonction_activation *fct = new Sigmoide();
+// TODO : definir comment passer la fonction d'activation car c'est encore flou peut etre la passer en parametres , et aussi verifier quand et comment mettre '0'+i et i dans le parametre label du perceptron
+NN1::NN1(int InputSize, int CategoriesNumber,Fonction_activation * fct ) {
+
     for(int i = 0 ; i<CategoriesNumber; i++ ){
-        perceptronList[i] = new Perceptron(InputSize,fct ,i);
+        perceptronList[i] = new Perceptron(InputSize,fct ,'0'+i);
         sleep(1);
     }
     NbPerceptronInNN1 = CategoriesNumber;
@@ -31,10 +31,7 @@ double value  = perceptronList[0]->forward(input);
 }
 
 void NN1::apprentissage(Input * input, double learningRante) {
-
-
     for(int i = 0 ; i<NbPerceptronInNN1 ; i++ ){
-        perceptronList[i]->calcul_delta(input);
         perceptronList[i]->backprop(input,learningRante);
     }
 }

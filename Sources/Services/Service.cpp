@@ -2,7 +2,7 @@
 // Created by hamro on 14/03/2021.
 //
 
-#include "../Libraries/Service.h"
+#include "../../Libraries/Service.h"
 #include <random>
 #include <chrono>
 
@@ -44,14 +44,14 @@ ifstream Service::readFile(char *FILE_PATH, int integerPosition) {
     return in;
 }
 //TODO : comprendre l'histoire des labels ..
-int Service::assigneLabelValuesIris(char *strLabel) {
+char Service::assigneLabelValuesIris(char *strLabel) {
     const char * IRIS_LABELS[3]={"Iris-setosa", "Iris-virginica", "Iris-versicolor"};
     for( int i=0 ; i<3 ; i++ ){
         if(strcmp(IRIS_LABELS[i],strLabel) == 0 ){
-        return i ;
+        return '0'+i ;
 }
     }
-  return -1 ;
+  return '4' ;
 }
 
 char Service::assigneLabelValuesImages(char *strLabel) {

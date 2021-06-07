@@ -30,7 +30,7 @@ public:
 
     virtual ~Service();
     Service();
-    static int assigneLabelValuesIris(char * strLabel);
+    static char assigneLabelValuesIris(char * strLabel);
     static char assigneLabelValuesImages(char * strLabel);
     static int* generateRandomIntArray(int min, int max, int ArrayLength, int * values);
     static int generateRandomInt(int min ,int  max);

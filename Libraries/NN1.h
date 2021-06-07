@@ -9,11 +9,11 @@
 
 class NN1 {
 private :
-    Perceptron *perceptronList[1000] ;
+    Perceptron *perceptronList[785] ;
     int NbPerceptronInNN1;
 public:
 
-    NN1(int ,int  );
+    NN1(int ,int,Fonction_activation*  );
     char evaluation(Input *);
     void apprentissage(Input * , double);
 

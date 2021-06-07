@@ -2,7 +2,7 @@
 // Created by hamro on 14/03/2021.
 //
 
-#include "../Libraries/Sigmoide.h"
+#include "../../Libraries/Sigmoide.h"
 
 Sigmoide::Sigmoide() = default;
 

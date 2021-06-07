@@ -3,7 +3,7 @@
 //
 
 
-#include "../Libraries/Tanh.h"
+#include "../../Libraries/Tanh.h"
 
 double Tanh::prim(double x) {
     Tanh tanh=Tanh();

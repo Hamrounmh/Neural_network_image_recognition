@@ -4,10 +4,10 @@
 #include <unistd.h>
 
 using namespace std;
-#include "Sources/Libraries/Iris.h"
-#include "Sources/Libraries/Image.h"
-#include "Sources/Libraries/Tanh.h"
-#include "Sources/Libraries/Perceptron.h"
+#include "Libraries/Iris.h"
+#include "Libraries/Image.h"
+#include "Libraries/Tanh.h"
+#include "Libraries/Perceptron.h"
 
 int main2() {
 
@@ -22,8 +22,8 @@ int main2() {
 
 
 
-//    Image im =  Image(10);
-//    cout << "label :"<<im.get_label()<<'\n';
+//    Image *im =  new Image(5000);
+//  cout << "label :"<<im->get_label()<<'\n';
 //      for ( int i=0; i<28*28;i++){
 //          cout << "pixel " <<i <<":"<<im[i]<<'\n';
 //      }

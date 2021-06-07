@@ -6,7 +6,7 @@
 #include <random>
 #include <chrono>
 #include <unistd.h>
-#include "../Libraries/Perceptron.h"
+#include "../../Libraries/Perceptron.h"
 using namespace std;
 
 //TODO:  tester les methodes de la class
@@ -31,15 +31,7 @@ Perceptron::Perceptron(int taille_Input, Fonction_activation   *fct, char  label
 double Perceptron::get_poids(int i) {
     return *(poids+i);
 }
-char* Perceptron::get_AllPoids(){
-    char * result = "";
-//    for (int i =0 ; i<=tailleInput; i++){
-//        char *labelresult;
-//        sprintf(labelresult, "%d", get_poids(i));
-//        strcat(result,labelresult );
-//    }
-    return  result;
-}
+
 double Perceptron::get_delta() {
     return delta;
 }
@@ -68,8 +60,15 @@ double Perceptron::calcul_delta(Input * in) {
         xi =(*in)[i];
         somme= somme +  (get_poids(i+1)*xi);
     }
-    double part1 = (*fonctionActivation).prim(somme);
-    char yj =  (*in).get_label();
+    double part1 = fonctionActivation->prim(somme);
+    char yj;
+    if(getLabel() == in->get_label()){
+         yj =1.;
+    }else{
+         yj =0.;
+    }
+
+    //char yj =  in->get_label();
     double Axj = forward(in);
     double part2 = Axj-yj;
     delta = part1*part2;
@@ -79,6 +78,7 @@ double Perceptron::calcul_delta(Input * in) {
 
 //TODO : verifier les taille des tableau sachant que poids est de taille n+1 et input.x est de taille n
 void Perceptron::backprop(Input * in, double learningRate) {
+    calcul_delta(in);
     poids[0]= get_poids(0) - learningRate*delta;
     for(int i=0; i<tailleInput; i++){
         poids[i+1]  = get_poids(i+1) - learningRate* (*in)[i] *delta;

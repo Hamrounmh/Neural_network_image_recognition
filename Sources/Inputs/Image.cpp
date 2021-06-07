@@ -2,8 +2,8 @@
 // Created by ahmed on 12/03/2021.
 //
 
-#include "../Libraries/Input.h"
-#include "../Libraries/Image.h"
+#include "../../Libraries/Input.h"
+#include "../../Libraries/Image.h"
 #include <iostream>
 
 using namespace std;
@@ -18,19 +18,25 @@ Image::Image(int index) {
     char  pixel;
     int i = 0;
     char line;
-
-
     Service sc = Service();
-    ifstream monFlux=  sc.readFile(sc.FILE_PATH_TRAINING,  index);
+    char FILE_PATH[200];
+
+    char filePosition[5] ;
+    sprintf(filePosition, "%d", index);
+    strcpy(FILE_PATH,sc.FILE_PATH_TRAINING);
+    strcat(FILE_PATH,filePosition);
+    ifstream in(FILE_PATH, ios ::in);
+
+   // ifstream in=  sc.readFile(sc.FILE_PATH_TRAINING, index);
     ifstream monFluxLabel(sc.FILE_PATH_LABEL, ios ::binary);
 
 
-    if(monFlux.good()){
+    if(in.good()){
         // se placer en 1078 octect a partir du debut de fichier
-        monFlux.seekg(1078,ios::beg);
-        while(!monFlux.eof()) {
+        in.seekg(1078, ios::beg);
+        while(!in.eof()) {
             for (int i = 0; i < tailleDePixel; i++) {
-                monFlux.read((char*) &pixels[i], sizeof(char));
+                in.read((char*) &pixels[i], sizeof(char));
 
             }
         }
@@ -52,17 +58,19 @@ Image::Image(int index) {
         ;exit(1);
     }
     monFluxLabel.close();
-    monFlux.close();
+    in.close();
 
      //lecture des labels
         label = Service::assigneLabelValuesImages(label_of_str);
 }
 
+
 // prend en entée un entier correspond a l'indice du pixel
 // un pixel c'est un niveau de gris (une valeur entre 0 et 255)
+// TODO : verifier si les doubles des pixels retournées sont bon ( si il faut que le pixels soit entre [0,1] ou sinon le garder entre 0 et 255 .
 double Image::operator[](int i) {
-    pixel= pixels[i]<0 ?  pixels[i]+256 : pixels[i];
-    return pixel;
+    double pixel= pixels[i]<0 ?  pixels[i]+256. : (double)pixels[i];
+    return pixel/255.;// [ 0 et 1 ]
 
 }
 
