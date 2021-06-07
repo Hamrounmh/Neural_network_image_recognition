@@ -10,8 +10,8 @@
 
 const double LEARNING_RATE_IMAGE = 1.;
 const double LEARNING_RATE_IRIS = 0.1;
-const int K_ITERATION_IMAGE_TRAINING = 100 000;
-const int K_ITERATION_IRIS_TRAINING = 15 000;
+const int K_ITERATION_IMAGE_TRAINING = 100000;
+const int K_ITERATION_IRIS_TRAINING = 15000;
 
 
 
@@ -51,7 +51,7 @@ return pourcentage;
 
 int main() {
     double resultOfLearning;
-    double aimedRate = 95;
+    double aimedRate = 90;
 
     do {
          resultOfLearning= learnIris();
