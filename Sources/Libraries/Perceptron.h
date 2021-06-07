@@ -12,7 +12,7 @@
 
 class Perceptron {
 private:
-    double poids[5];
+    double  poids[1000];
     Fonction_activation *fonctionActivation ;
     double delta;
     char label;

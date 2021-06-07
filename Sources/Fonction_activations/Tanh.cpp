@@ -7,7 +7,7 @@
 
 double Tanh::prim(double x) {
     Tanh tanh=Tanh();
-    return  (1 - tanh(x)) ;
+    return  (1 - tanh(x)*tanh(x)) ;
 }
 
 double  Tanh::operator()(double x) {

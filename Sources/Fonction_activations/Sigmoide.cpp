@@ -8,11 +8,11 @@ Sigmoide::Sigmoide() = default;
 
 double Sigmoide::prim(double x) {
     Sigmoide sg = Sigmoide();
-    return 1-sg(x);
+    return sg(x)*(1.-sg(x));
 }
 
 double Sigmoide::operator()(double x) {
-    double y = 1/(1+(double)exp(-x));
+    double y = 1./(1.+(double)exp(-x));
     return y;
 }
 

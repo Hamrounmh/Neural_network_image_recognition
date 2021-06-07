@@ -17,7 +17,7 @@ void PatronApprentissage::apprendre_base(int k_iterations, double learningRate) 
     Input *input;
 
 for(int i=0; i<k_iterations ;i++){
-    int randomInt = sc.generateRandomInt(0,exemplesNumberForInput);
+    int randomInt = sc.generateRandomInt(0,exemplesNumberForInput-1);
     if(strcmp(serviceNameInput,"image") == 0){
         input= new Image(randomInt);
     }else{

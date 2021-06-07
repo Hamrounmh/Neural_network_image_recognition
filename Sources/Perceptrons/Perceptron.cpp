@@ -56,7 +56,8 @@ double Perceptron::forward(Input * in) {
         somme = somme + get_poids(i+1)*xi;
     }
    double result  =  (*fonctionActivation)(somme);
-    return result ;
+
+    return result;
 
 }
 

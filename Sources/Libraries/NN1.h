@@ -9,7 +9,7 @@
 
 class NN1 {
 private :
-    Perceptron *perceptronList[20] ;
+    Perceptron *perceptronList[1000] ;
     int NbPerceptronInNN1;
 public:
 
