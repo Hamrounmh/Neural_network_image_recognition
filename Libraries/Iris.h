@@ -12,7 +12,7 @@ private:
     static const int taille_description = 4;
     double description[taille_description];
 public:
-    Iris(char);
+    Iris(int index );
     ~Iris();
     static void get_description(int i);
     double operator [] (int);

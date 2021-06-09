@@ -5,26 +5,28 @@
 #include "../../Libraries/Apprentissage.h"
 
 
-template <class input_type_class, int exemplesNumberForInput>
-Apprentissage<input_type_class,exemplesNumberForInput> ::Apprentissage(NN1 * p_nn1) {
-nn1 = p_nn1;
+template <class input_type_class, int exemplesNumberForInput,class NeuralNetwork>
+Apprentissage<input_type_class,exemplesNumberForInput,NeuralNetwork> ::Apprentissage(NeuralNetwork * p_nn1) {
+    neuralNetwork = p_nn1;
 }
 
-template <class input_type_class, int exemplesNumberForInput>
-void Apprentissage<input_type_class,exemplesNumberForInput>::apprendre_base(int k_iterations, double learningRate) {
+template <class input_type_class, int exemplesNumberForInput,class NeuralNetwork>
+void Apprentissage<input_type_class,exemplesNumberForInput,NeuralNetwork>::apprendre_base(int k_iterations, double learningRate) {
     Service sc = Service();
 
 for(int i=0; i<k_iterations ;i++){
     int randomInt = sc.generateRandomInt(0,exemplesNumberForInput-1);
     Input * input = new input_type_class(randomInt);
-    nn1->apprentissage(input,learningRate);
+    neuralNetwork->apprentissage(input, learningRate);
 
+    if(i%1000 == 0 )
+        cout <<"operation d'apprentissage en cours, apprentissage à : "<< i/1000<<"%\n";
 }
 
 }
 
-template <class input_type_class, int exemplesNumberForInput>
-int Apprentissage<input_type_class,exemplesNumberForInput>::evaluer() {
+template <class input_type_class, int exemplesNumberForInput,class NeuralNetwork>
+int Apprentissage<input_type_class,exemplesNumberForInput,NeuralNetwork>::evaluer() {
     int cpt = 0;
     char resultEvaluation;
     Service sc = Service();
@@ -33,7 +35,7 @@ int Apprentissage<input_type_class,exemplesNumberForInput>::evaluer() {
     for(int i = 0; i<exemplesNumberForInput ; i++ ){
 
     Input *input= new input_type_class(i);
-    resultEvaluation= nn1->evaluation(input);
+    resultEvaluation= neuralNetwork->evaluation(input);
     labelInput =  input->get_label();
 
     if(resultEvaluation == labelInput)

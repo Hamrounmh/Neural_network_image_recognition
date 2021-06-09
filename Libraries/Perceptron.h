@@ -9,14 +9,17 @@
 #include "Fonction_activation.h"
 #include "Input.h"
 #include "Tanh.h"
+#include <vector>
+#include <utility>
 
 class Perceptron {
 private:
-    double  poids[1000];
-    Fonction_activation *fonctionActivation ;
     double delta;
     char label;
+protected:
+    vector<double> poids;
     int tailleInput;
+    Fonction_activation *fonctionActivation ;
 public:
     /*
      * Un constructeur qui prend en paramètre un entier correspondant à la taille de l’input (par exemple, 4 pour les fleurs et 784 pour les images),
@@ -50,9 +53,7 @@ public:
     //𝑤𝒊𝑘={𝑤𝒊𝑘−1−𝜇𝛿𝑘−1 𝑠𝑖 𝑖=0 𝑤𝒊𝑘−1−𝜇𝑥𝑖𝛿𝑘−1 𝑠𝑖𝑛𝑜𝑛
     void backprop(Input *, double mu);
 
-    char getLabel() const;
-
-    void setLabel(char label);
+    char getLabel() ;
 
     void setDelta(double delta);
 

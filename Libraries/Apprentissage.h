@@ -10,14 +10,14 @@
 #include "Image.h"
 #include "Iris.h"
 
-template <class input_type_class, int exemplesNumberForInput>
+template <class input_type_class, int exemplesNumberForInput,class NeuralNetwork>
         class Apprentissage {
 private :
-    NN1 * nn1;
+    NeuralNetwork * neuralNetwork;
     char * serviceNameInput ;
 public :
-    Apprentissage( NN1 * );
-   void apprendre_base(int k_iterations, double learningRate);
+    Apprentissage( NeuralNetwork * );
+    void apprendre_base(int k_iterations, double learningRate);
     int evaluer();
 
 };

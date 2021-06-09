@@ -5,9 +5,9 @@
 
 #include "../../Libraries/Iris.h"
 
-Iris::Iris(char car) {
+Iris::Iris(int integerPosition) {
 
-    int integerPosition = car < 0 ? car+256 : car ;
+
     Service sc = Service();
     ifstream in =  sc.readFile(sc.FILE_PATH_IRIS,  integerPosition);
    char* label_file_str = new char[100];

@@ -45,13 +45,23 @@ ifstream Service::readFile(char *FILE_PATH, int integerPosition) {
 }
 //TODO : comprendre l'histoire des labels ..
 char Service::assigneLabelValuesIris(char *strLabel) {
-    const char * IRIS_LABELS[3]={"Iris-setosa", "Iris-virginica", "Iris-versicolor"};
-    for( int i=0 ; i<3 ; i++ ){
-        if(strcmp(IRIS_LABELS[i],strLabel) == 0 ){
-        return '0'+i ;
-}
+
+    if (strLabel == "Iris-setosa")
+    {
+        return '0';
     }
-  return '4' ;
+    else if (strLabel == "Iris-virginica")
+    {
+        return '1';
+    }
+    else if (strLabel == "Iris-versicolor")
+    {
+        return '2';
+    }
+    else
+    {
+        return '0';
+    }
 }
 
 char Service::assigneLabelValuesImages(char *strLabel) {
