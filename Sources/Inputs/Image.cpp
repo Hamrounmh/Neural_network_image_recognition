@@ -70,7 +70,7 @@ Image::Image(int index) {
 // TODO : verifier si les doubles des pixels retournées sont bon ( si il faut que le pixels soit entre [0,1] ou sinon le garder entre 0 et 255 .
 double Image::operator[](int i) {
     double pixel= pixels[i]<0 ?  pixels[i]+256. : (double)pixels[i];
-    return pixel/255.;// [ 0 et 1 ]
+    return pixel/255.;
 
 }
 

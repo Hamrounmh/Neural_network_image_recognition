@@ -14,7 +14,7 @@ public:
     Perceptron_hidden(int inputSize, Fonction_activation *activation, char labelOfPerceptron,
                       vector<Perceptron *> p_perceptronsList);
 
-    double calcul_delta(Input * );
+    double calcul_delta(Input *,int s );
     void backprop(Input * , double);
     int PerceptronsSize();
 private :

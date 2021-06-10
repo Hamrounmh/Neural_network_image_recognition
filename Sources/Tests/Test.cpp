@@ -49,28 +49,28 @@ double  learnIrisNN2(){
     return pourcentage;
 }
 
-
-
 double learnImageNN1(){
 
     Service sc = Service();
     NN1 *nn1 = new NN1(sc.SIZE_CARACTERESTIQUES_IMAGE, sc.SIZE_CATEGORIES_IMAGE,new Sigmoide());
 
-    Apprentissage<Image,sc.DATA_SIZE_IMAGE,NN1> patronApprentissage(  nn1);
+    Apprentissage<Image,sc.DATA_SIZE_IMAGE,NN1> patronApprentissage(nn1);
     patronApprentissage.apprendre_base(K_ITERATION_IMAGE_TRAINING,LEARNING_RATE_IMAGE);
     int result = patronApprentissage.evaluer();
 
     double pourcentage = (result / (double)sc.DATA_SIZE_IMAGE) * 100;
     cout << "le resultat de l'evaluation des images est de : " <<pourcentage  <<"%\n"  ;
+    delete nn1;
 return pourcentage;
 
 }
+
 double learnImageNN2(){
 
     Service sc = Service();
     NN2 *nn2 = new NN2(sc.SIZE_CARACTERESTIQUES_IMAGE, sc.SIZE_CATEGORIES_IMAGE,sc.SIZE_CARACTERESTIQUES_IMAGE,new Sigmoide());
 
-    Apprentissage<Image,sc.DATA_SIZE_IMAGE,NN2> patronApprentissage(  nn2);
+    Apprentissage<Image,sc.DATA_SIZE_IMAGE,NN2> patronApprentissage(nn2);
     patronApprentissage.apprendre_base(K_ITERATION_IMAGE_TRAINING,LEARNING_RATE_IMAGE);
     int result = patronApprentissage.evaluer();
 
@@ -85,33 +85,15 @@ int main() {
     double resultOfLearning;
     double aimedRate = 101;
 
-    do {
-         resultOfLearning= learnImageNN2();
-    }while(resultOfLearning<aimedRate);
+
+    resultOfLearning= learnImageNN2();
+//    resultOfLearning= learnIrisNN2();
+    //resultOfLearning= learnImageNN1();
+//    resultOfLearning= learnIrisNN1();
 
 
 
-//Perceptron p1 =  Perceptron(3,new Sigmoide(),'0');
-//Perceptron p2 =  Perceptron(3,new Sigmoide(),'1');
-//Perceptron p3 =  Perceptron(3,new Sigmoide(),'2');
-//
-//Iris * ir1 = new Iris(140);
-//Iris * ir2 = new Iris(3);
-//Iris * ir3= new Iris(4);
-//
-//
-//
-//vector<Perceptron> vector= std::vector<Perceptron>();
-//vector.push_back(p1);
-//vector.push_back(p2);
-//vector.push_back(p3);
-//
-//Perceptron_hidden pi = Perceptron_hidden(3,new Sigmoide(),'1',vector);
-//
-//cout<< pi.calcul_delta(ir1);
-//
-// pi.backprop(ir1,1);
-// cout<< pi.calcul_delta(ir1);
+
 
 
 
