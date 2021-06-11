@@ -10,8 +10,7 @@
 NN1::NN1(int InputSize, int CategoriesNumber,Fonction_activation * fct ) {
 
     for(int i = 0 ; i<CategoriesNumber; i++ ){
-        perceptronList[i] = new Perceptron(InputSize,fct ,'0'+i);
-        sleep(1);
+        perceptronList[i] = new Perceptron(InputSize,fct ,'0' + i);
     }
     NbPerceptronInNN1 = CategoriesNumber;
 }
@@ -32,6 +31,7 @@ double value  = perceptronList[0]->forward(input);
 
 void NN1::apprentissage(Input * input, double learningRante) {
     for(int i = 0 ; i<NbPerceptronInNN1 ; i++ ){
+        perceptronList[i]->calcul_delta(input);
         perceptronList[i]->backprop(input,learningRante);
     }
 }

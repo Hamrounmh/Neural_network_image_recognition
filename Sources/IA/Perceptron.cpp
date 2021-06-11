@@ -18,18 +18,17 @@ Perceptron::Perceptron(int taille_Input, Fonction_activation   *fct, char  label
     int * values = new int[taille_Input+1];
     label =  labelInput;
     delta = 0.;
-
     Service::generateRandomIntArray(-1,1,taille_Input+1,values);
     for(int i= 0 ; i<taille_Input+1 ; i++ ){
-        *(poids+i) = *(values+i);
+        poids.push_back(*(values+i));
     }
-
-
+    //ici le sleep est a cause du random qui utilise le chrono
+    sleep(0.2);
 
 }
 
-double Perceptron::get_poids(int i) {
-    return *(poids+i);
+double Perceptron::get_poids(int index) {
+    return poids[index];
 }
 
 double Perceptron::get_delta() {
@@ -47,9 +46,8 @@ double Perceptron::forward(Input * in) {
         xi =(*in)[i];
         somme = somme + get_poids(i+1)*xi;
     }
-   double result  =  (*fonctionActivation)(somme);
+  return  (*fonctionActivation)(somme);
 
-    return result;
 
 }
 
@@ -61,24 +59,24 @@ double Perceptron::calcul_delta(Input * in) {
         somme= somme +  (get_poids(i+1)*xi);
     }
     double part1 = fonctionActivation->prim(somme);
-    char yj;
+    double yj;
+
     if(getLabel() == in->get_label()){
-         yj =1.;
+         yj =1.0;
     }else{
-         yj =0.;
+         yj =0.0;
     }
 
-    //char yj =  in->get_label();
     double Axj = forward(in);
     double part2 = Axj-yj;
     delta = part1*part2;
-    setDelta( delta);
+
+    setDelta(delta);
     return delta ;
 }
 
 //TODO : verifier les taille des tableau sachant que poids est de taille n+1 et input.x est de taille n
 void Perceptron::backprop(Input * in, double learningRate) {
-    calcul_delta(in);
     poids[0]= get_poids(0) - learningRate*delta;
     for(int i=0; i<tailleInput; i++){
         poids[i+1]  = get_poids(i+1) - learningRate* (*in)[i] *delta;
@@ -86,12 +84,10 @@ void Perceptron::backprop(Input * in, double learningRate) {
 
 }
 
-char Perceptron::getLabel() const {
+char Perceptron::getLabel()  {
     return label;
 }
 
-void Perceptron::setLabel(char label) {
-    Perceptron::label = label;
-}
+
 
 
