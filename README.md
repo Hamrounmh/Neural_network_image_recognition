@@ -10,15 +10,15 @@ On a deux types d'images :
 > ## Solutions :
 Nous utilisons l'algorithme Perceptron afin de classifier les images selon les types d'images. Ensuite nous comparons les 2 algorithmes d'apprentissage
 qui sont : 
-- Perceptron multicouches sans couche cachée
-- Perceptron multicouche avec une couche cachée
+- Perceptron  sans couche cachée
+- Perceptron  avec une couche cachée
 
 > ## Résultats :
 Les algorithmes tournent correctement et les résultats sont cohérents.
-1. Première solution (NN1) Perceptrons multicouches sans couche cachée :
+1. Première solution (NN1) Perceptrons  sans couche cachée :
 	- Pour la classe Iris, le taux de réussite est de 100% 
 	- Pour la classe Image, un taux de réussite est de 78%
-2. Seconde solution (NN2) :
+2. Seconde solution Perceptron multicouches avec une couche cachée (NN2) :
 	- Pour la classe Iris,le taux de réussite est de 100%.
 	- Pour la classe Image, un taux de réussite est de 91%
 
