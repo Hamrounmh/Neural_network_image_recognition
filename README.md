@@ -6,6 +6,9 @@ On a deux types d'images :
 </br>1 - des images qui contiennent des dessins de chiffres
 </br>2 - des fichiers qui contiennent des caractéristiques de la fleur Iris. 
 
+> ## Données :
+- 60000 images de chiffres.
+- 150 fichiers de caractéristiques de la fleur Iris
 
 > ## Solutions :
 Nous utilisons l'algorithme Perceptron afin de classifier les images selon les types d'images. Ensuite nous comparons les 2 algorithmes d'apprentissage
