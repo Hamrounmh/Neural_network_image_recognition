@@ -3,8 +3,8 @@
 Le projet consiste à implémenter un réseau de neurones capable d’apprendre à classifier des images en fonction de leurs contenus.
 </br>
 On a deux types d'images :
-1 - des images qui contiennent des dessins de chiffres
-2 - des fichiers qui contiennent des caractéristiques de la fleur Iris. 
+</br>1 - des images qui contiennent des dessins de chiffres
+</br>2 - des fichiers qui contiennent des caractéristiques de la fleur Iris. 
 
 
 > ## Solutions :
