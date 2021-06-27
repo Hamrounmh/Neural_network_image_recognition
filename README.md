@@ -26,8 +26,6 @@ Les algorithmes tournent correctement et les résultats sont cohérents.
 	- Pour la classe Image, un taux de réussite est de 91%
 
 > ## Utilisation :
-$ cd .\src\  
-$ make  
-$ .\executable.exe argv[1](="nn1" ou "nn2") argv[2](="iris" ou "image")
+
 >## Utilisation 2 : 
 Telecharger le projet dans un éditeur C++ (Clion pâr exemple) et executer la class Test avec cos propres parametres.
